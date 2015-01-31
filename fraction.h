@@ -5,11 +5,12 @@ class fraction{
 	private:
 		T numerator;
 		T denominator;
-		long long whole_number;
-		bool positive;
+		int whole_number; 
+		bool negative;
 	public:
-		fraction(T num,T denom);
-		fraction(T num,T denom, long long whole);
+		fraction(T numer,T denom);
+		fraction(T numer,T denom, int whole);
+		fraction(T number);
 		fraction operator+(const fraction &X) const;
 		fraction operator-(const fraction &X) const;
 		fraction operator*(const fraction &X) const;
@@ -18,5 +19,7 @@ class fraction{
 		bool operator!=(const fraction &X) const;
 		bool operator>(const fraction &X) const;
 		bool operator<(const fraction &X) const;
-		void display();
+		void display() const;
 };
+
+

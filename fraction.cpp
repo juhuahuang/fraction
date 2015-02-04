@@ -6,7 +6,9 @@ using namespace std;
 template<class T>
 fraction<T>::fraction(T numer, T denom){
 	// denominator can't be 0
-	assert(denom!=0);
+	if(denom == 0){
+		throw "Denominator can't be zero!";
+	}
 	numerator = numer<0? -numer:numer;
 	denominator = denom<0 ? -denom:denom;
 	whole_number = 0;
@@ -16,7 +18,8 @@ fraction<T>::fraction(T numer, T denom){
 template<class T>
 fraction<T>::fraction(T numer, T denom, int whole){
 	// denominator can't be 0 and whole_number has to be positive or 0;
-	assert(denom!=0 && whole >= 0 );
+	if( denom == 0) throw "Denominator can't be zero!";
+	if( whole<0) throw "whole number in mixed fraction can't be negative!";
 	numerator = numer<0? -numer:numer;
 	denominator = denom<0 ? -denom:denom;
 	whole_number = whole;
@@ -202,7 +205,7 @@ template<class T>
 fraction<T> fraction<T> :: operator/(const fraction &X) const{
 	T new_numerator = (numerator + whole_number*denominator) * X.denominator;
 	T new_denominator = denominator * (X.numerator + X.whole_number*X.denominator);
-	assert(new_denominator!=0);
+	if( new_denominator == 0) throw "get a zero denominator in division!";
 
 	// if inputs are both mixed fraction, then return mixed fraction.
 	if( whole_number != 0 && X.whole_number != 0){

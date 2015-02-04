@@ -309,8 +309,11 @@ int GCD(int u, int v){
 
 
 int main(){
-
+	try{
 	fraction<double> a(-5.63);
+	} catch(const char* msg){
+		cout<<msg<<endl;
+	}
 	a.display();
 
 /*

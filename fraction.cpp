@@ -1,6 +1,6 @@
 #include <iostream> 
-#include <cassert> 
 #include <cmath>  
+#include <exceptions>
 #include "fraction.h"
 using namespace std;
 template<class T>
